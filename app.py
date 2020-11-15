@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, abort, request, url_for
+from flask import Flask, abort, request, url_for
 
 
 app = Flask(__name__)
@@ -14,12 +14,12 @@ catbreed_list = [siamese, persian]
 def catbreed(id):
     if id < 0 or id >= len(catbreed_list):
         abort(404)
-    return jsonify(catbreed_list[id])
+    return catbreed_list[id]
 
 
 @app.route("/api/catbreeds", methods=["GET"])
 def catbreeds():
-    return jsonify({"catbreeds": catbreed_list})
+    return {"catbreeds": catbreed_list}
 
 
 @app.route("/api/catbreeds", methods=["POST"])
