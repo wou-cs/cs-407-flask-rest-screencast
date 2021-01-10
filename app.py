@@ -7,23 +7,23 @@ siamese = {"breed": "Siamese", "style": "Feisty"}
 
 persian = {"breed": "Persian", "style": "Ambivalent"}
 
-catbreed_list = [siamese, persian]
+cat_breed_list = [siamese, persian]
 
 
-@app.route("/api/catbreeds/<int:id>", methods=["GET"])
-def catbreed(id):
-    if id < 0 or id >= len(catbreed_list):
+@app.route("/api/catbreeds/<int:breed_id>", methods=["GET"])
+def cat_breed(breed_id):
+    if breed_id < 0 or breed_id >= len(cat_breed_list):
         abort(404)
-    return catbreed_list[id]
+    return cat_breed_list[breed_id]
 
 
 @app.route("/api/catbreeds", methods=["GET"])
-def catbreeds():
-    return {"catbreeds": catbreed_list}
+def cat_breeds():
+    return {"catbreeds": cat_breed_list}
 
 
 @app.route("/api/catbreeds", methods=["POST"])
-def new_catbreed():
+def new_cat_breed():
     if not request.json:
         abort(400)
     new_breed = request.get_json()
