@@ -31,4 +31,4 @@ def new_catbreed():
         abort(400)
     new_breed["id"] = 999
     new_breed["location"] = url_for("catbreed", id=999)
-    return jsonify(new_breed)
+    return new_breed
