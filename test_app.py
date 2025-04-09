@@ -28,7 +28,7 @@ def test_new_cat_breed_returns_id(client):
 
 def test_new_cat_breed_without_json_results_in_error(client):
     response = client.post('/api/cat_breeds')
-    assert response.status_code == 400
+    assert response.status_code == 415
 
 
 def test_new_cat_breed_without_all_elements_errors(client):
